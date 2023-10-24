@@ -30,6 +30,15 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                snake.direction = 'UP'
+            elif event.key == pygame.K_DOWN:
+                snake.direction = 'DOWN'
+            elif event.key == pygame.K_LEFT:
+                snake.direction = 'LEFT'
+            elif event.key == pygame.K_RIGHT:
+                snake.direction = 'RIGHT'
 
     # Draw the menu before the game starts
     if not game_started:
@@ -49,6 +58,11 @@ while True:
         break
 
     # Adjust the speed of the snake and the frequency of food appearance based on the selected difficulty level
-    # ...
+    if menu.difficulty == 'Easy':
+        FPS = 60
+    elif menu.difficulty == 'Medium':
+        FPS = 90
+    elif menu.difficulty == 'Hard':
+        FPS = 120
 
     pygame.display.update()
