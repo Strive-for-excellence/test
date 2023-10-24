@@ -3,6 +3,7 @@ import sys
 from snake import Snake
 from food import Food
 from menu import Menu
+from pygame import messagebox
 
 # Initialize Pygame
 pygame.init()
@@ -23,6 +24,16 @@ menu = Menu()
 
 # Create a score
 score = 0
+
+def reset_game():
+    global score
+    score = 0
+    snake = Snake()
+    food = Food()
+
+def game_over():
+    messagebox.showinfo("Game Over", f"Your final score is: {score}")
+    reset_game()
 
 # Main game loop
 while True:
@@ -55,7 +66,7 @@ while True:
 
     # Check if the snake has collided with itself or the game boundary
     if snake.body[0] in snake.body[1:] or snake.body[0][0] < 0 or snake.body[0][0] > WIDTH or snake.body[0][1] < 0 or snake.body[0][1] > HEIGHT:
-        break
+        game_over()
 
     # Adjust the speed of the snake and the frequency of food appearance based on the selected difficulty level
     if menu.difficulty == 'Easy':
