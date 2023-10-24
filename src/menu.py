@@ -1,4 +1,4 @@
-   import pygame
+import pygame
 
    class Menu:
        def __init__(self):
@@ -6,3 +6,6 @@
 
        def draw(self, WIN):
            # Draw the menu and the difficulty selection
+
+       def change_difficulty(self, difficulty):
+           self.difficulty = difficulty
