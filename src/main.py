@@ -67,29 +67,32 @@ while True:
                 menu.change_difficulty('Medium')
             elif event.key == pygame.K_3:
                 menu.change_difficulty('Hard')
+            elif event.key == pygame.K_SPACE:  # Add this line to start the game when space is pressed
+                game_started = True
 
-    # Update the snake's position
-    snake.update()
+    if game_started:  # Add this line to update the game state only when the game has started
+        # Update the snake's position
+        snake.update()
 
-    # Draw the snake and food
-    snake.draw(WIN)
-    food.draw(WIN)
+        # Draw the snake and food
+        snake.draw(WIN)
+        food.draw(WIN)
 
-    # Check if the snake has eaten the food
-    if snake.body[0] == food.position:
-        score += 1
-        food = Food(WIDTH, HEIGHT)
+        # Check if the snake has eaten the food
+        if snake.body[0] == food.position:
+            score += 1
+            food = Food(WIDTH, HEIGHT)
 
-    # Check if the snake has collided with itself or the game boundary
-    if game_started and (snake.body[0] in snake.body[1:] or snake.body[0][0] < 0 or snake.body[0][0] > WIDTH or snake.body[0][1] < 0 or snake.body[0][1] > HEIGHT):
-        game_over()
+        # Check if the snake has collided with itself or the game boundary
+        if snake.body[0] in snake.body[1:] or snake.body[0][0] < 0 or snake.body[0][0] > WIDTH or snake.body[0][1] < 0 or snake.body[0][1] > HEIGHT:
+            game_over()
 
-    # Adjust the speed of the snake and the frequency of food appearance based on the selected difficulty level
-    if menu.difficulty == 'Easy':
-        FPS = 60
-    elif menu.difficulty == 'Medium':
-        FPS = 90
-    elif menu.difficulty == 'Hard':
-        FPS = 120
+        # Adjust the speed of the snake and the frequency of food appearance based on the selected difficulty level
+        if menu.difficulty == 'Easy':
+            FPS = 60
+        elif menu.difficulty == 'Medium':
+            FPS = 90
+        elif menu.difficulty == 'Hard':
+            FPS = 120
 
     pygame.display.update()
