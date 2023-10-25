@@ -18,7 +18,7 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
 # Create a snake and a food
 snake = Snake(WIDTH, HEIGHT)
-food = Food()
+food = Food(WIDTH, HEIGHT)
 
 # Create a menu
 menu = Menu()
@@ -30,7 +30,7 @@ def reset_game():
     global score
     score = 0
     snake = Snake(WIDTH, HEIGHT)
-    food = Food()
+    food = Food(WIDTH, HEIGHT)
 
 def game_over():
     root = tk.Tk()
@@ -72,7 +72,7 @@ while True:
     # Check if the snake has eaten the food
     if snake.body[0] == food.position:
         score += 1
-        food = Food()
+        food = Food(WIDTH, HEIGHT)
 
     # Check if the snake has collided with itself or the game boundary
     if snake.body[0] in snake.body[1:] or snake.body[0][0] < 0 or snake.body[0][0] > WIDTH or snake.body[0][1] < 0 or snake.body[0][1] > HEIGHT:
