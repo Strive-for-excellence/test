@@ -68,13 +68,12 @@ while True:
             elif event.key == pygame.K_3:
                 menu.change_difficulty('Hard')
 
+    # Update the snake's position
+    snake.update()
+
     # Draw the snake and food
     snake.draw(WIN)
     food.draw(WIN)
-
-    # Handle user inputs
-    # Update game state
-    # Render game objects
 
     # Check if the snake has eaten the food
     if snake.body[0] == food.position:
