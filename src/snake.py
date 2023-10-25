@@ -1,11 +1,11 @@
 import pygame
 
 class Snake:
-    def __init__(self):
+    def __init__(self, width, height):
         self.size = 10
         self.color = (0, 255, 0)
         self.direction = 'UP'
-        self.body = [(WIDTH // 2, HEIGHT // 2)]
+        self.body = [(width // 2, height // 2)]
 
     def draw(self, WIN):
         for part in self.body:
