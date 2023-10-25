@@ -26,6 +26,9 @@ menu = Menu()
 # Create a score
 score = 0
 
+# Initialize game_started
+game_started = False
+
 def reset_game():
     global score
     score = 0
