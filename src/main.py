@@ -16,6 +16,9 @@ FPS = 60
 # Create the game window
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
+# Initialize game_started
+game_started = False
+
 # Create a snake and a food
 snake = Snake(WIDTH, HEIGHT)
 food = Food(WIDTH, HEIGHT)
@@ -26,18 +29,17 @@ menu = Menu()
 # Create a score
 score = 0
 
-# Initialize game_started
-game_started = False
-
 # Draw the menu before the game starts
 if not game_started:
+    snake = Snake(WIDTH, HEIGHT)  # Reset the snake
+    food = Food(WIDTH, HEIGHT)  # Reset the food
     menu.draw(WIN)
 
 def reset_game():
     global score, snake, food
     score = 0
-    snake = Snake(WIDTH, HEIGHT)
-    food = Food(WIDTH, HEIGHT)
+    snake = Snake(WIDTH, HEIGHT)  # Reset the snake
+    food = Food(WIDTH, HEIGHT)  # Reset the food
 
 def game_over():
     root = tk.Tk()
@@ -89,10 +91,10 @@ while True:
 
         # Adjust the speed of the snake and the frequency of food appearance based on the selected difficulty level
         if menu.difficulty == 'Easy':
-            FPS = 30  # Reduced from 60 to 30
+            FPS = 15  # Reduced from 30 to 15
         elif menu.difficulty == 'Medium':
-            FPS = 60  # Reduced from 90 to 60
+            FPS = 30  # Reduced from 60 to 30
         elif menu.difficulty == 'Hard':
-            FPS = 90  # Reduced from 120 to 90
+            FPS = 45  # Reduced from 90 to 45
 
     pygame.display.update()
