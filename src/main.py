@@ -1,9 +1,10 @@
 import pygame
 import sys
+import tkinter as tk
 from snake import Snake
 from food import Food
 from menu import Menu
-from pygame import messagebox
+from tkinter import messagebox
 
 # Initialize Pygame
 pygame.init()
