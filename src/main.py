@@ -34,7 +34,7 @@ if not game_started:
     menu.draw(WIN)
 
 def reset_game():
-    global score
+    global score, snake, food
     score = 0
     snake = Snake(WIDTH, HEIGHT)
     food = Food(WIDTH, HEIGHT)
