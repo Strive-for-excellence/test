@@ -81,7 +81,7 @@ while True:
         food = Food(WIDTH, HEIGHT)
 
     # Check if the snake has collided with itself or the game boundary
-    if snake.body[0] in snake.body[1:] or snake.body[0][0] < 0 or snake.body[0][0] > WIDTH or snake.body[0][1] < 0 or snake.body[0][1] > HEIGHT:
+    if game_started and (snake.body[0] in snake.body[1:] or snake.body[0][0] < 0 or snake.body[0][0] > WIDTH or snake.body[0][1] < 0 or snake.body[0][1] > HEIGHT):
         game_over()
 
     # Adjust the speed of the snake and the frequency of food appearance based on the selected difficulty level
