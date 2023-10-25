@@ -33,7 +33,10 @@ def reset_game():
     food = Food()
 
 def game_over():
+    root = tk.Tk()
+    root.withdraw()
     messagebox.showinfo("Game Over", f"Your final score is: {score}")
+    root.destroy()
     reset_game()
 
 # Main game loop
