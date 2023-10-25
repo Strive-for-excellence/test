@@ -21,4 +21,5 @@ class Snake:
         elif self.direction == 'RIGHT':
             self.body.insert(0, (self.body[0][0] + self.size, self.body[0][1]))
 
-        self.body.pop()
+        if len(self.body) > 1:  # Only remove the last part of the snake if it has more than one part
+            self.body.pop()
