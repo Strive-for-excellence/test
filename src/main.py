@@ -29,6 +29,10 @@ score = 0
 # Initialize game_started
 game_started = False
 
+# Draw the menu before the game starts
+if not game_started:
+    menu.draw(WIN)
+
 def reset_game():
     global score
     score = 0
@@ -63,10 +67,6 @@ while True:
                 menu.change_difficulty('Medium')
             elif event.key == pygame.K_3:
                 menu.change_difficulty('Hard')
-
-    # Draw the menu before the game starts
-    if not game_started:
-        menu.draw(WIN)
 
     # Handle user inputs
     # Update game state
