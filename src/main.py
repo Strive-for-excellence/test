@@ -89,10 +89,10 @@ while True:
 
         # Adjust the speed of the snake and the frequency of food appearance based on the selected difficulty level
         if menu.difficulty == 'Easy':
-            FPS = 60
+            FPS = 30  # Reduced from 60 to 30
         elif menu.difficulty == 'Medium':
-            FPS = 90
+            FPS = 60  # Reduced from 90 to 60
         elif menu.difficulty == 'Hard':
-            FPS = 120
+            FPS = 90  # Reduced from 120 to 90
 
     pygame.display.update()
