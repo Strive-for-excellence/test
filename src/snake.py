@@ -1,11 +1,11 @@
 import pygame
 
 class Snake:
-    def __init__(self):
+    def __init__(self, width, height):
         self.size = 10
         self.color = (0, 255, 0)
         self.direction = 'UP'
-        self.body = [(WIDTH // 2, HEIGHT // 2)]
+        self.body = [(width // 2, height // 2)]
 
     def draw(self, WIN):
         for part in self.body:
@@ -21,4 +21,5 @@ class Snake:
         elif self.direction == 'RIGHT':
             self.body.insert(0, (self.body[0][0] + self.size, self.body[0][1]))
 
-        self.body.pop()
+        if len(self.body) > 1:  # Only remove the last part of the snake if it has more than one part
+            self.body.pop()
