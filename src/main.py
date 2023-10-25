@@ -16,7 +16,7 @@ FPS = 60
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
 # Create a snake and a food
-snake = Snake()
+snake = Snake(WIDTH, HEIGHT)
 food = Food()
 
 # Create a menu
@@ -28,7 +28,7 @@ score = 0
 def reset_game():
     global score
     score = 0
-    snake = Snake()
+    snake = Snake(WIDTH, HEIGHT)
     food = Food()
 
 def game_over():
