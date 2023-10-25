@@ -50,6 +50,12 @@ while True:
                 snake.direction = 'LEFT'
             elif event.key == pygame.K_RIGHT:
                 snake.direction = 'RIGHT'
+            elif event.key == pygame.K_1:
+                menu.change_difficulty('Easy')
+            elif event.key == pygame.K_2:
+                menu.change_difficulty('Medium')
+            elif event.key == pygame.K_3:
+                menu.change_difficulty('Hard')
 
     # Draw the menu before the game starts
     if not game_started:
